@@ -19,6 +19,8 @@ namespace topic_5_monogame___making_a_class
         private float _animationSpeed;
         private float _seconds;
 
+        private Random generator;
+
         public Rectangle Rect
         {
             get { return _location; }
@@ -35,17 +37,26 @@ namespace topic_5_monogame___making_a_class
 
         public Ghost(List<Texture2D> textures, Rectangle location)
         {
+
+            generator = new Random();
+            int randX = generator.Next(0, 800);
+            int randY = generator.Next(0, 500);
             _textures = textures;
             _location = location;
+            _location.X = randX;
+            _location.Y = randY;
             _textureIndex = 0;
             _speed = Vector2.Zero;
             _direction = SpriteEffects.None;
             _animationSpeed = 0.2f;
             _seconds = 0;
+
+          
         }
         public void draw(SpriteBatch spriteBatch)
         {
             spriteBatch.Draw(_textures[_textureIndex],
+
                             _location,
                             null,
                             Color.White,

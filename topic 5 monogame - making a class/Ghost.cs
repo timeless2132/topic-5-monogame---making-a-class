@@ -79,7 +79,21 @@ namespace topic_5_monogame___making_a_class
             {
                 _direction = SpriteEffects.None;
                 _speed.X = 1;
-            }  
+            } 
+            
+
+            if (mouseState.Y < _location.Y)
+            {
+                _direction = SpriteEffects.None;
+                _speed.Y = -1;
+            }
+            else if (mouseState.Y > _location.Y)
+            {
+                _direction = SpriteEffects.None;
+                _speed.Y = 1;
+            }
+
+
             if (mouseState.LeftButton == ButtonState.Released)
             {
                 _speed = Vector2.Zero;
